@@ -17,25 +17,6 @@ abstract class BaseActivity: AppCompatActivity() {
 
         setContentView(getLayoutResourceId())
         setUpUi()
-        setFragment()
-    }
-
-    private fun setFragment() {
-         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { menuItem->
-            when(menuItem.itemId)
-            {
-                R.id.nav_tasks-> {val fragment= TasksFragment()
-                    showFragment(R.id.fragmentContainer,fragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.nav_about-> {val fragment = PagerFragment()
-                    showFragment(R.id.fragmentContainer,fragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
-        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
     protected fun showFragment(fragment: Fragment){
